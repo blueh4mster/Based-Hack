@@ -16,7 +16,7 @@ export const CONTRACT_ADDRESS: Record<string, `0x${string}`> = {
 
 export const API_URL = "http://localhost:8080";
 //change the name in future , contract address for `name.sol`
-export const MAIN_APP_CONTRACT_ADDRESS = "";
+export const veilTrade_CONTRACT_ADDRESS = "";
 export const DAI = "0x5d64848D57fa2263827b07E7caC38FC9b1E0B19E";
 export const WETH = "0x83A0C51E2D292b46C38126b6BebF570F49a41FE9";
 export const MATCHER = "0xD5D56F27A592F2E9A008647eeAa390cc353dfc36";

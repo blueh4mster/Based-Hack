@@ -5,8 +5,8 @@ import {
   useWaitForTransaction,
 } from "wagmi";
 
-import { main_appABI } from "./../abi/main_app";
-import { DEFAULT_CHAIN_ID,  MAIN_APP_CONTRACT_ADDRESS } from "~/constants";
+import { veilTradeABI } from "./../abi/veilTrade";
+import { DEFAULT_CHAIN_ID, veilTrade_CONTRACT_ADDRESS } from "~/constants";
 
 interface depositParam {
   a: string[] | undefined;
@@ -23,8 +23,8 @@ export const useContractDeposit = ({ a, b, c, input }: depositParam) => {
     config,
   } = usePrepareContractWrite({
     chainId: DEFAULT_CHAIN_ID,
-    address:  MAIN_APP_CONTRACT_ADDRESS,
-    abi: main_appABI,
+    address: veilTrade_CONTRACT_ADDRESS,
+    abi: veilTradeABI,
     functionName: "deposit",
     account: address,
     args: [a, b, c, input],

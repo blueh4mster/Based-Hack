@@ -1,1 +1,1 @@
-export const main_appABI = [];
+export const veilTradeABI = [];

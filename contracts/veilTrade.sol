@@ -33,7 +33,7 @@ interface ISettleVerifier {
     ) external view returns (bool);
 }
 
-contract name {
+contract veilTrade {
     address public WETHAddr;
     address public DAIAddr;
     address public matcherAddr;

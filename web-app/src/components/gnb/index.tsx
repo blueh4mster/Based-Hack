@@ -33,7 +33,7 @@ export const Gnb = () => {
 
   return (
     <Wrapper>
-      <LogoWrapper src={logo} alt="main_app" />
+      <LogoWrapper src={logo} alt="veilTrade" />
       <ContentWrapper>
         {MENU.map(({ id, text, path }) => (
           <MenuWrapper key={id} onClick={() => navigate(path)}>
