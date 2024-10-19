@@ -4,11 +4,11 @@ import tw, { styled } from 'twin.macro';
 import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts';
 import { formatEther } from 'viem';
 
-import { COLOR } from '~/assets/colors';
-import { ButtonSmall } from '~/components/buttons';
-import { IconNext, IconNote, IconWatch, IconWatchOff } from '~/components/icons';
-import { LOCALSTORAGE_KEYS } from '~/constants';
-import { parseFloat, parseNumberWithComma, parseNumberWithUnit } from '~/utils/number';
+import { COLOR } from '../../../assets/colors';
+import { ButtonSmall } from '../../../components/buttons';
+import { IconNext, IconNote, IconWatch, IconWatchOff } from '../../../components/icons';
+import { LOCALSTORAGE_KEYS } from '../../../constants/constants';
+import { parseFloat, parseNumberWithComma, parseNumberWithUnit } from '../../../utils/utils';
 
 import { Balance, Order, ORDER_STATUS } from '../types';
 

@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
-import { logger } from '~/states/middleware/logger';
-import { DEPOSIT_OPTIONS } from '~/types';
+import { logger } from '../middleware/logger';
+import { DEPOSIT_OPTIONS } from '../../types';
 
 export interface DepositState {
   selected: DEPOSIT_OPTIONS;

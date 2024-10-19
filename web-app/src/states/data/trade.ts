@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
-import { logger } from '~/states/middleware/logger';
-import { TRADE_OPTIONS } from '~/types';
+import { logger } from '../middleware/logger';
+import { TRADE_OPTIONS } from '../../types';
 
 export interface TradeState {
   selected: TRADE_OPTIONS;

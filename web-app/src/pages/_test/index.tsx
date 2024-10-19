@@ -1,6 +1,6 @@
 import tw from "twin.macro";
 
-import { useReadMaticDecimalQuery } from "~/api/api-veilTrade/read";
+import { useReadMaticDecimalQuery } from "./../../api/api-veilTrade/read";
 
 const TestPage = () => {
   const { data: decimalData } = useReadMaticDecimalQuery();

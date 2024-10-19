@@ -1,8 +1,8 @@
 import tw from 'twin.macro';
 import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts';
 
-import { Gnb } from '~/components/gnb';
-import { LOCALSTORAGE_KEYS } from '~/constants';
+import { Gnb } from '../../components/gnb';
+import { LOCALSTORAGE_KEYS } from '../../constants/constants';
 
 import { BalanceHeader } from './components/balance-header';
 import { BalanceRow } from './components/balance-row';

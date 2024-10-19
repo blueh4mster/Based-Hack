@@ -6,18 +6,18 @@ import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts';
 import { parseEther } from 'viem';
 import { useConnect } from 'wagmi';
 
-import { ButtonLarge } from '~/components/buttons';
-import { Gnb } from '~/components/gnb';
-import { TextField } from '~/components/textfield';
-import { Toggle } from '~/components/toggle';
-import { LOCALSTORAGE_KEYS } from '~/constants';
-import { useTokenApprove } from '~/contract/approve';
-import { useContractDeposit } from '~/contract/deposit';
-import { useConnectWallet } from '~/hooks/data/use-connect-wallet';
-import { useDepositState } from '~/states/data/deposit';
-import { DEPOSIT_OPTIONS } from '~/types';
+import { ButtonLarge } from '../../components/buttons';
+import { Gnb } from '../../components/gnb';
+import { TextField } from '../../components/textfield';
+import { Toggle } from '../../components/toggle';
+import { LOCALSTORAGE_KEYS } from '../../constants/constants';
+import { useTokenApprove } from '../../contract/approve';
+import { useContractDeposit } from '../../contract/deposit';
+import { useConnectWallet } from '../../hooks/data/use-connect-wallet';
+import { useDepositState } from '../../states/data/deposit';
+import { DEPOSIT_OPTIONS } from '../../types';
 
-import { depositCalldata } from '../../zkproof/deposit/snarkjsDeposit';
+import { depositCalldata } from '../../proof/deposit/snarkjsDeposit';
 import { Balance } from '../my/types';
 
 const DepositPage = () => {
