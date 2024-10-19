@@ -3,7 +3,7 @@ import { Web3Modal } from '@web3modal/react';
 import tw, { styled } from 'twin.macro';
 import { WagmiConfig } from 'wagmi';
 
-import { ethereumClient, projectId, wagmiConfig } from '~/configs/setup-wallet';
+import { ethereumClient, projectId, wagmiConfig } from '../../../config/setup-wallet';
 
 import { DropdownProfile } from '.';
 

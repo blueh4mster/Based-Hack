@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import tw, { css, styled } from 'twin.macro';
 import { WagmiConfig } from 'wagmi';
 
-import { ethereumClient, projectId, wagmiConfig } from '~/configs/setup-wallet';
+import { ethereumClient, projectId, wagmiConfig } from '../../configs/setup-wallet';
 
 import { Gnb } from '.';
 

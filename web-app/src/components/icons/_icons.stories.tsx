@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import tw from 'twin.macro';
 
-import * as IconSvg from '~/components/icons';
+import * as IconSvg from '../icons/index';
 
 const meta = {
   title: 'Components/Icon',

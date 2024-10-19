@@ -6,7 +6,7 @@ import {
 } from "wagmi";
 
 import { veilTradeABI } from "./../abi/veilTrade";
-import { DEFAULT_CHAIN_ID, veilTrade_CONTRACT_ADDRESS } from "~/constants";
+import { DEFAULT_CHAIN_ID, VEILTRADE_CONTRACT_ADDRESS} from "../constants/constants";
 
 interface depositParam {
   a: string[] | undefined;

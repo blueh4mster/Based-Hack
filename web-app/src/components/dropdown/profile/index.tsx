@@ -2,12 +2,12 @@ import { useRef, useState } from 'react';
 import tw, { styled } from 'twin.macro';
 import { useOnClickOutside } from 'usehooks-ts';
 
-import { COLOR } from '~/assets/colors';
-import { IconLogout } from '~/components/icons';
-import { CONTRACT_ADDRESS } from '~/constants';
-import { useNativeTokenBalances, useTokenBalances } from '~/hooks/data/use-balance';
-import { useConnectWallet } from '~/hooks/data/use-connect-wallet';
-import { shortenAddress } from '~/utils/string';
+import { COLOR } from '../../../assets/colors/index';
+import { IconLogout } from '../../icons/index';
+import { CONTRACT_ADDRESS } from '../../../constants/constants';
+import { useNativeTokenBalances, useTokenBalances } from '../../../hooks/data/use-balance';
+import { useConnectWallet } from '../../../hooks/data/use-connect-wallet';
+import { shortenAddress } from '../../../utils/utils';
 
 export const DropdownProfile = () => {
   const ref = useRef<HTMLDivElement>(null);

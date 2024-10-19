@@ -2,7 +2,7 @@ import lottie from 'lottie-web';
 import { ButtonHTMLAttributes, useEffect, useRef } from 'react';
 import tw, { styled } from 'twin.macro';
 
-import loading from '~/assets/lottie/loading.json';
+import loading from '../../../assets/lottie/loading.json';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;

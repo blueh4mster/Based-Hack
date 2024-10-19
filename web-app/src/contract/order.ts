@@ -5,8 +5,8 @@ import {
   useWaitForTransaction,
 } from "wagmi";
 
-import { veilTradeABI } from "./../abi/veilTrade";
-import { DEFAULT_CHAIN_ID, veilTrade_CONTRACT_ADDRESS } from "~/constants";
+import { veilTradeABI } from "../abi/veilTrade";
+import { DEFAULT_CHAIN_ID, VEILTRADE_CONTRACT_ADDRESS } from "../constants/constants";
 
 interface orderParam {
   a: string[] | undefined;

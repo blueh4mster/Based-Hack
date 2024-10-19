@@ -8,7 +8,7 @@ import {
 } from "wagmi";
 
 import { TOKEN_ABI } from "../abi/token";
-import { DAI, DEFAULT_CHAIN_ID, veilTrade_CONTRACT_ADDRESS } from "./constants";
+import { DAI, DEFAULT_CHAIN_ID, VEILTRADE_CONTRACT_ADDRESS} from "../constants/constants";
 
 export const useTokenApprove = () => {
   const [allowance, setAllowance] = useState(false);

@@ -1,8 +1,8 @@
-import lottie from 'lottie-web';
-import { ButtonHTMLAttributes, useEffect, useRef } from 'react';
-import tw, { styled } from 'twin.macro';
+import lottie from "lottie-web";
+import { ButtonHTMLAttributes, useEffect, useRef } from "react";
+import tw, { styled } from "twin.macro";
 
-import loading from '~/assets/lottie/loading.json';
+import loading from "../../../assets/lottie/loading.json";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
@@ -15,7 +15,7 @@ export const ButtonSmall = ({ text, isLoading, ...rest }: Props) => {
     if (!warpperRef.current || !isLoading) return;
     lottie.loadAnimation({
       container: warpperRef.current,
-      renderer: 'svg',
+      renderer: "svg",
       loop: true,
       autoplay: true,
       animationData: loading,

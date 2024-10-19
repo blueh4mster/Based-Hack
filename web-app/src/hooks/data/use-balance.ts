@@ -1,7 +1,7 @@
 import { isAddress } from 'viem';
 import { useBalance } from 'wagmi';
 
-import { parseFloat, parseNumberWithComma, parseNumberWithUnit } from '~/utils/number';
+import { parseFloat, parseNumberWithComma, parseNumberWithUnit } from '../../utils/utils';
 
 interface Balance {
   value: bigint;
