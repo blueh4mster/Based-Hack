@@ -6,7 +6,10 @@ import {
 } from "wagmi";
 
 import { veilTradeABI } from "../abi/veilTrade";
-import { DEFAULT_CHAIN_ID, VEILTRADE_CONTRACT_ADDRESS } from "../constants/constants";
+import {
+  DEFAULT_CHAIN_ID,
+  VEILTRADE_CONTRACT_ADDRESS,
+} from "../constants/constants";
 
 interface orderParam {
   a: string[] | undefined;
@@ -24,7 +27,7 @@ export const useContractOrder = ({ a, b, c, input }: orderParam) => {
     config,
   } = usePrepareContractWrite({
     chainId: DEFAULT_CHAIN_ID,
-    address: veilTrade_CONTRACT_ADDRESS,
+    address: VEILTRADE_CONTRACT_ADDRESS,
     abi: veilTradeABI,
     functionName: "order",
     account: address,

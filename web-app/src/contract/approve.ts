@@ -8,7 +8,11 @@ import {
 } from "wagmi";
 
 import { TOKEN_ABI } from "../abi/token";
-import { DAI, DEFAULT_CHAIN_ID, VEILTRADE_CONTRACT_ADDRESS} from "../constants/constants";
+import {
+  DAI,
+  DEFAULT_CHAIN_ID,
+  VEILTRADE_CONTRACT_ADDRESS,
+} from "../constants/constants";
 
 export const useTokenApprove = () => {
   const [allowance, setAllowance] = useState(false);
@@ -20,7 +24,7 @@ export const useTokenApprove = () => {
     address: DAI,
     abi: TOKEN_ABI,
     functionName: "allowance",
-    args: [walletAddress, veilTrade_CONTRACT_ADDRESS],
+    args: [walletAddress, VEILTRADE_CONTRACT_ADDRESS],
     enabled,
     onSuccess: (data) => {
       const bigInt = BigInt(data?.toString() ?? "0");
@@ -36,7 +40,7 @@ export const useTokenApprove = () => {
     abi: TOKEN_ABI,
     functionName: "approve",
     args: [
-      veilTrade_CONTRACT_ADDRESS,
+      VEILTRADE_CONTRACT_ADDRESS,
       "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
     ],
     enabled: true,
