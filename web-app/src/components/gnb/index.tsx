@@ -1,28 +1,28 @@
-import { useWeb3Modal } from '@web3modal/react';
-import { useNavigate } from 'react-router-dom';
-import tw from 'twin.macro';
+import { useWeb3Modal } from "@web3modal/react";
+import { useNavigate } from "react-router-dom";
+import tw from "twin.macro";
 
-import logo from '~/assets/images/logo.png';
-import { useConnectWallet } from '~/hooks/data/use-connect-wallet';
+import logo from "~/assets/images/logo.png";
+import { useConnectWallet } from "~/hooks/data/use-connect-wallet";
 
-import { ButtonMedium } from '../buttons';
-import { DropdownProfile } from '../dropdown/profile';
+import { ButtonMedium } from "../buttons";
+import { DropdownProfile } from "../dropdown/profile";
 
 const MENU = [
   {
-    id: 'deposit',
-    text: 'Deposit',
-    path: '/deposit',
+    id: "deposit",
+    text: "Deposit",
+    path: "/deposit",
   },
   {
-    id: 'trade',
-    text: 'Trade',
-    path: '/trade',
+    id: "trade",
+    text: "Trade",
+    path: "/trade",
   },
   {
-    id: 'my',
-    text: 'MY',
-    path: '/my',
+    id: "my",
+    text: "MY",
+    path: "/my",
   },
 ];
 
@@ -33,7 +33,7 @@ export const Gnb = () => {
 
   return (
     <Wrapper>
-      <LogoWrapper src={logo} alt="Nox Finance" />
+      <LogoWrapper src={logo} alt="main_app" />
       <ContentWrapper>
         {MENU.map(({ id, text, path }) => (
           <MenuWrapper key={id} onClick={() => navigate(path)}>
@@ -43,7 +43,11 @@ export const Gnb = () => {
         {isConnected ? (
           <DropdownProfile />
         ) : (
-          <ButtonMedium text="Connect Wallet" isLoading={isOpen} onClick={open} />
+          <ButtonMedium
+            text="Connect Wallet"
+            isLoading={isOpen}
+            onClick={open}
+          />
         )}
       </ContentWrapper>
     </Wrapper>

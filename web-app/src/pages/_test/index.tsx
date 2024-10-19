@@ -1,6 +1,6 @@
-import tw from 'twin.macro';
+import tw from "twin.macro";
 
-import { useReadMaticDecimalQuery } from '~/api/api-noxfi/read';
+import { useReadMaticDecimalQuery } from "~/api/api-app/read";
 
 const TestPage = () => {
   const { data: decimalData } = useReadMaticDecimalQuery();
@@ -9,7 +9,7 @@ const TestPage = () => {
   return (
     <Wrapper>
       <Title>FOR TEST PAGE</Title>
-      <Content>{`connect api.nox.finance & fetch matic decimal data for text : ${decimal}`}</Content>
+      <Content>{`connect api & fetch matic decimal data for text : ${decimal}`}</Content>
     </Wrapper>
   );
 };
