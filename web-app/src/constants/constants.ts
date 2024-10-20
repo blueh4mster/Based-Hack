@@ -8,7 +8,7 @@ export const DEFAULT_CHAIN_ID = CHAIN_ID.BASE_SEPOLIA; // for testnet
 // wallet connect project id
 export const WALLETCONNECT_PROJECT_ID = "";
 export const CHAINLINK_ETH_USD = "0x4aDC67696bA383F43DD60A9e78F2C97Fbbfc7cb1"; // on base sepolia
-export const CHAINLINK_DAI_USD = "0xD1092a65338d049DB68D7Be6bD89d17a0929945e"; // on base sepolia
+export const CHAINLINK_DAI_USD = "0xd1092a65338d049db68d7be6bd89d17a0929945e"; // on base sepolia
 export const CONTRACT_ADDRESS: Record<string, `0x${string}`> = {
   CHAINLINK_ETH_DAI: "0x773616e4d11a78f511299002da57a0a94577f1f4",
 };

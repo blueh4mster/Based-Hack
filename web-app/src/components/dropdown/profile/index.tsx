@@ -4,7 +4,7 @@ import { useOnClickOutside } from 'usehooks-ts';
 
 import { COLOR } from '../../../assets/colors/index';
 import { IconLogout } from '../../icons/index';
-import { CONTRACT_ADDRESS } from '../../../constants/constants';
+import { CONTRACT_ADDRESS ,DAI} from '../../../constants/constants';
 import { useNativeTokenBalances, useTokenBalances } from '../../../hooks/data/use-balance';
 import { useConnectWallet } from '../../../hooks/data/use-connect-wallet';
 import { shortenAddress } from '../../../utils/utils';
@@ -14,7 +14,7 @@ export const DropdownProfile = () => {
 
   const { address, disconnect } = useConnectWallet();
   const { formattedWithComma: ethBalance } = useNativeTokenBalances(address);
-  const { formattedWithComma: daiBalance } = useTokenBalances(address, CONTRACT_ADDRESS.DAI);
+  const { formattedWithComma: daiBalance } = useTokenBalances(address,DAI);
 
   const [opened, open] = useState(false);
   const toggle = () => open(!opened);
