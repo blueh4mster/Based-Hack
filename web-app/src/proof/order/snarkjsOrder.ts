@@ -21,8 +21,8 @@ export async function orderCalldata(
       Input: string[];
     } = await exportCallDataGroth16(
       input,
-      "/zkproof/order.wasm",
-      "/zkproof/order_final.zkey"
+      "/proof/order.wasm",
+      "/proof/order_final.zkey"
     );
 
     return dataResult;

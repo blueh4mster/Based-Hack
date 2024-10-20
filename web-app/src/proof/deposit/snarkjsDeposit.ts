@@ -19,8 +19,8 @@ export async function depositCalldata(
       Input: string[];
     } = await exportCallDataGroth16(
       input,
-      "/zkproof/deposit.wasm",
-      "/zkproof/deposit_final.zkey"
+      "/proof/deposit.wasm",
+      "/proof/deposit_final.zkey"
     );
 
     return dataResult;
