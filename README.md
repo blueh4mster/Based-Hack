@@ -1,1 +1,5 @@
-# Based Hackathon
+# Veil Trade
+Veil Trade is an on-chain private double auction DEX utilizing zero-knowledge proofs to facilitate private, large-scale trades without affecting the market. Unlike traditional DEXs, Veil Trade reduces slippage, eliminates the prevailing front-running attacks, and is optimized for low liquidity pools and institutional investors.
+
+Decentralized Exchanges often struggle with significant market impact when they're faced with large-scale orders that exceed their existing liquidity. This prompts whales and institutional investors to migrate their assets to Centralized Exchanges (CEXs) when they're contemplating large-scale trades however in turn taking risk of "Whale alerts".
+Veil Trade is essentially based on the concept of "dark-pools" in the traditional financial markets. It operates private double auction to ensure large scale trading for institutional investors. In the open auction, traders have to submit the zero-knowledge proofs of their balance along with their encrypted orders.
