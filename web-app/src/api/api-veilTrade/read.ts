@@ -1,13 +1,13 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 
 import { api } from '../axios';
-import { ReadMaticDecimalResponse } from './read-interfaces';
+import { ReadDecimalResponse } from './read-interfaces';
 
 // TODO: FUNCTIONS
-const readMaticDecimalAxios = async () =>
-  (await api.get<ReadMaticDecimalResponse>(`/contracts/matic/decimals`)).data;
+const readDecimalAxios = async () =>
+  (await api.get<ReadDecimalResponse>(`/contracts/matic/decimals`)).data;
 
-export const useReadMaticDecimalQuery = (options?: UseQueryOptions<ReadMaticDecimalResponse>) =>
-  useQuery<ReadMaticDecimalResponse>(['api', 'read', 'matic decimals'], readMaticDecimalAxios, {
+export const useReadDecimalQuery = (options?: UseQueryOptions<ReadDecimalResponse>) =>
+  useQuery<ReadDecimalResponse>(['api', 'read', 'matic decimals'], readDecimalAxios, {
     ...options,
   });

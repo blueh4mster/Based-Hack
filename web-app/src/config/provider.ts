@@ -1,8 +1,8 @@
 // getLatestPrice.ts
 import { createPublicClient, http } from "viem";
-import { mainnet } from "viem/chains";
+import { mainnet, baseSepolia } from "viem/chains";
 
 export const publicClient = createPublicClient({
-  chain: mainnet,
+  chain: baseSepolia,
   transport: http("https://cloudflare-eth.com"),
 });

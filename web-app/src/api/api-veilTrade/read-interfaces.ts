@@ -1,4 +1,4 @@
 // TODO: CHANGE TYPE
-export interface ReadMaticDecimalResponse {
+export interface ReadDecimalResponse {
   data: { decimals: number };
 }
