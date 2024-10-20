@@ -1,16 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Web3Modal } from '@web3modal/react';
-import tw, { styled } from 'twin.macro';
-import { WagmiConfig } from 'wagmi';
+import type { Meta, StoryObj } from "@storybook/react";
+import { Web3Modal } from "@web3modal/react";
+import tw from "twin.macro";
+import {styled} from "twin.macro";
+import { WagmiConfig } from "wagmi";
 
-import { ethereumClient, projectId, wagmiConfig } from '../../../config/wallet';
+import { ethereumClient, projectId, wagmiConfig } from "../../../config/wallet";
 
-import { DropdownProfile } from '.';
+import { DropdownProfile } from ".";
 
 const meta = {
-  title: 'Components/DropdownProfile',
+  title: "Components/DropdownProfile",
   component: DropdownProfile,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {},
 } satisfies Meta<typeof DropdownProfile>;
 

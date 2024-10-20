@@ -1,9 +1,9 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { formatEther } from 'viem';
 
-import { aggregatorV3InterfaceABI } from '~/abi/chainlink';
-import { publicClient } from '~/configs/setup-provider';
-import { CONTRACT_ADDRESS } from '~/constants';
+import { aggregatorV3InterfaceABI } from '../../abi/chainlink';
+import { publicClient } from '../../config/provider';
+import { CONTRACT_ADDRESS } from '../../constants/constants';
 
 import { ReadLatestRoundDataEthDaiResponse } from './read-interfaces';
 

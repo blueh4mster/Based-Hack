@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Web3Modal } from '@web3modal/react';
-import { BrowserRouter } from 'react-router-dom';
-import tw, { css, styled } from 'twin.macro';
-import { WagmiConfig } from 'wagmi';
+import type { Meta, StoryObj } from "@storybook/react";
+import { Web3Modal } from "@web3modal/react";
+import { BrowserRouter } from "react-router-dom";
+import tw, { css, styled } from "twin.macro";
+import { WagmiConfig } from "wagmi";
 
-import { ethereumClient, projectId, wagmiConfig } from '../../configs/setup-wallet';
+import { ethereumClient, projectId, wagmiConfig } from "../../config/wallet";
 
-import { Gnb } from '.';
+import { Gnb } from ".";
 
 const meta = {
-  title: 'Components/Gnb',
+  title: "Components/Gnb",
   component: Gnb,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {},
 } satisfies Meta<typeof Gnb>;
 

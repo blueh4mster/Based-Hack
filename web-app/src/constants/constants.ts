@@ -6,8 +6,7 @@ export const CHAIN_ID = {
 export const DEFAULT_CHAIN_ID = CHAIN_ID.BASE_SEPOLIA; // for testnet
 
 // wallet connect project id
-export const WALLETCONNECT_PROJECT_ID = import.meta.env
-  .VITE_WALLETCONNECT_PROJECT_ID;
+export const WALLETCONNECT_PROJECT_ID = "";
 
 export const CONTRACT_ADDRESS: Record<string, `0x${string}`> = {
   CHAINLINK_ETH_DAI: "0x773616e4d11a78f511299002da57a0a94577f1f4",

@@ -26,11 +26,11 @@ export const useContractOrder = ({ a, b, c, input }: orderParam) => {
     fetchStatus: prepareFetchStatus,
     config,
   } = usePrepareContractWrite({
+    account: address,
     chainId: DEFAULT_CHAIN_ID,
     address: VEILTRADE_CONTRACT_ADDRESS,
     abi: veilTradeABI,
     functionName: "order",
-    account: address,
     args: [a, b, c, input],
     enabled: !!a && !!b && !!c && !!input,
   });
