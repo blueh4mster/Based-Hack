@@ -8,9 +8,9 @@ Veil Trade is essentially based on the concept of "dark-pools" in the traditiona
 
 All these contracts have been deployed to the Base Sepolia Testnet.
 
-- cancelVerifier :: 0x07AD9186f24776784f516c960192004AAf225880
-- settleVerifier :: 0xE4B3B41C25bA0C68D007d62ef3fF215739a2b4FC
-- depositVerifier :: 0x4ef0A04Fb545B77adCa6dDba7b1648ccF9b557f3
-- orderVerifier :: 0xBCE2dd10f23Ac67557E1F2297f79E422211EE077
-- withdrawVerifier :: 0x1457132Ef4b3A540Df50f7F781a3250489868d20
-- veilTrade :: 0xCA8FC92970a4361d9219Cf5535F3cDFFB1C4f1B9
+- cancelVerifier :: `0x07AD9186f24776784f516c960192004AAf225880`
+- settleVerifier :: `0xE4B3B41C25bA0C68D007d62ef3fF215739a2b4FC`
+- depositVerifier :: `0x4ef0A04Fb545B77adCa6dDba7b1648ccF9b557f3`
+- orderVerifier :: `0xBCE2dd10f23Ac67557E1F2297f79E422211EE077`
+- withdrawVerifier :: `0x1457132Ef4b3A540Df50f7F781a3250489868d20`
+- veilTrade :: `0xCA8FC92970a4361d9219Cf5535F3cDFFB1C4f1B9`
