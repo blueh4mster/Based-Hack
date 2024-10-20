@@ -2,7 +2,7 @@ import { useWeb3Modal } from "@web3modal/react";
 import { useNavigate } from "react-router-dom";
 import tw from "twin.macro";
 
-import logo from "../../assets/images/logo.jpeg";
+import logo from "../../assets/images/veilTrade.jpeg";
 import { useConnectWallet } from "../../hooks/data/use-connect-wallet";
 
 import { ButtonMedium } from "../buttons";
