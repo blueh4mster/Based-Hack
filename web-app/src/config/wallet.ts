@@ -6,6 +6,8 @@ import {
 import { configureChains, createConfig } from "wagmi";
 import { baseSepolia } from "wagmi/chains";
 
+// import { coinbaseWallet } from "wagmi/connectors";
+
 import { WALLETCONNECT_PROJECT_ID } from "../constants/constants";
 
 export const chains = [baseSepolia]; // for test
@@ -15,6 +17,10 @@ const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
 
 export const wagmiConfig = createConfig({
   autoConnect: true,
+  // connectors: coinbaseWallet({
+  //   appName: "Create Wagmi",
+  //   preference: "smartWalletOnly",
+  // }),
   connectors: w3mConnectors({ projectId, chains }),
   publicClient,
 });
