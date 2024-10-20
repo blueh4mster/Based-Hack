@@ -1,4 +1,4 @@
-import { Amount } from '~/types';
+import { Amount } from "./../../../types/index";
 
 export interface Balance {
   id: number;
@@ -9,10 +9,10 @@ export interface Balance {
 }
 
 export enum ORDER_STATUS {
-  ORDERED = 'ORDERED',
-  MATCHED = 'MATCHED',
-  CANCELED = 'CANCELED',
-  DONE = 'DONE',
+  ORDERED = "ORDERED",
+  MATCHED = "MATCHED",
+  CANCELED = "CANCELED",
+  DONE = "DONE",
 }
 
 export interface Order {

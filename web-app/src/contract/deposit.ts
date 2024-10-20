@@ -19,31 +19,19 @@ interface depositParam {
 }
 export const useContractDeposit = ({ a, b, c, input }: depositParam) => {
   const { address } = useAccount();
-  // const {
-  //   isLoading: prepareLoading,
-  //   status: prepareStatus,
-  //   fetchStatus: prepareFetchStatus,
-  //   config,
-  // } = usePrepareContractWrite({
-  //   account: address,
-  //   chainId: DEFAULT_CHAIN_ID,
-  //   address: VEILTRADE_CONTRACT_ADDRESS,
-  //   abi: veilTradeABI,
-  //   functionName: "deposit",
-  //   args: [a, b, c, input],
-  //   enabled: !!a && !!b && !!c && !!input,
-  // });
-  const { config } = usePrepareContractWrite({
+  const {
+    isLoading: prepareLoading,
+    status: prepareStatus,
+    fetchStatus: prepareFetchStatus,
+    config,
+  } = usePrepareContractWrite({
     account: address,
     chainId: DEFAULT_CHAIN_ID,
-    functionName: "approve",
     address: VEILTRADE_CONTRACT_ADDRESS,
     abi: veilTradeABI,
-    args: [
-      VEILTRADE_CONTRACT_ADDRESS,
-      "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
-    ],
-    enabled: true,
+    functionName: "deposit",
+    args: [a, b, c, input],
+    enabled: !!a && !!b && !!c && !!input,
   });
 
   const { data, writeAsync } = useContractWrite(config);

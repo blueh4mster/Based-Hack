@@ -4,11 +4,11 @@ import {
   w3mProvider,
 } from "@web3modal/ethereum";
 import { configureChains, createConfig } from "wagmi";
-import { goerli, baseSepolia } from "wagmi/chains";
+import { baseSepolia } from "wagmi/chains";
 
 import { WALLETCONNECT_PROJECT_ID } from "../constants/constants";
 
-export const chains = [baseSepolia, goerli]; // for test
+export const chains = [baseSepolia]; // for test
 export const projectId = WALLETCONNECT_PROJECT_ID;
 
 const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);

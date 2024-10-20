@@ -1,27 +1,27 @@
-import { InjectedConnector } from '@wagmi/core';
-import { useWeb3Modal } from '@web3modal/react';
-import { useEffect, useState } from 'react';
-import tw from 'twin.macro';
-import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts';
-import { parseEther } from 'viem';
-import { useConnect } from 'wagmi';
+import { InjectedConnector } from "@wagmi/core";
+import { useWeb3Modal } from "@web3modal/react";
+import { useEffect, useState } from "react";
+import tw from "twin.macro";
+import { useLocalStorage, useReadLocalStorage } from "usehooks-ts";
+import { parseEther } from "viem";
+import { useConnect } from "wagmi";
 
-import { useReadLatestRoundDataEthDai } from '../../api/contracts-chainlink/read';
-import { ButtonLarge } from '../../components/buttons';
-import { Gnb } from '../../components/gnb';
-import { IconNext } from '../../components/icons';
-import { TextField } from '../../components/textfield';
-import { Toggle } from '../../components/toggle';
-import { LOCALSTORAGE_KEYS } from '../../constants/constants';
-import { useTokenApprove } from '../../contract/approve';
-import { useContractOrder } from '../../contract/order';
-import { useConnectWallet } from '../../hooks/data/use-connect-wallet';
-import { useTradeState } from '../../states/data/trade';
-import { TRADE_OPTIONS } from '../../types';
-import { parseFloat, parseNumberWithComma } from '../../utils/utils';
-import { orderCalldata } from '../../proof/order/snarkjsOrder';
+import { useReadLatestRoundDataEthDai } from "../../api/contracts-chainlink/read";
+import { ButtonLarge } from "../../components/buttons";
+import { Gnb } from "../../components/gnb";
+import { IconNext } from "../../components/icons";
+import { TextField } from "../../components/textfield";
+import { Toggle } from "../../components/toggle";
+import { LOCALSTORAGE_KEYS } from "../../constants/constants";
+import { useTokenApprove } from "../../contract/approve";
+import { useContractOrder } from "../../contract/order";
+import { useConnectWallet } from "../../hooks/data/use-connect-wallet";
+import { useTradeState } from "../../states/data/trade";
+import { TRADE_OPTIONS } from "../../types";
+import { parseFloat, parseNumberWithComma } from "../../utils/utils";
+import { orderCalldata } from "../../proof/order/snarkjsOrder";
 
-import { Balance, Order, ORDER_STATUS } from '../my/types';
+import { Balance, Order, ORDER_STATUS } from "../my/types";
 
 const TradePage = () => {
   const { isConnected } = useConnectWallet();
@@ -38,33 +38,48 @@ const TradePage = () => {
   const [tradeInput, setTradeInput] = useState<string[]>();
 
   const currentOrders = useReadLocalStorage<Order[]>(LOCALSTORAGE_KEYS.ORDERS);
-  const [order, setOrder] = useLocalStorage<Order[]>(LOCALSTORAGE_KEYS.ORDERS, currentOrders ?? []);
-  const currentBalance = useReadLocalStorage<Balance[]>(LOCALSTORAGE_KEYS.BALANCES);
+  const [order, setOrder] = useLocalStorage<Order[]>(
+    LOCALSTORAGE_KEYS.ORDERS,
+    currentOrders ?? []
+  );
+  const currentBalance = useReadLocalStorage<Balance[]>(
+    LOCALSTORAGE_KEYS.BALANCES
+  );
   const [_, setBalance] = useLocalStorage<Balance[]>(
     LOCALSTORAGE_KEYS.BALANCES,
     currentBalance ?? []
   );
 
-  const { data: ethDaiData } = useReadLatestRoundDataEthDai({ staleTime: Infinity });
+  const { data: ethDaiData } = useReadLatestRoundDataEthDai({
+    staleTime: Infinity,
+  });
 
-  const [amount, setAmount] = useState<number | string>('');
-  const [price, setPrice] = useState<number | string>('');
-  const [calculatedAmount, setCalculatedAmount] = useState<number | string>('');
+  const [amount, setAmount] = useState<number | string>("");
+  const [price, setPrice] = useState<number | string>("");
+  const [calculatedAmount, setCalculatedAmount] = useState<number | string>("");
 
-  const { allowance, writeAsync: approveAsync, isLoading: isApproveLoading } = useTokenApprove();
+  const {
+    allowance,
+    writeAsync: approveAsync,
+    isLoading: isApproveLoading,
+  } = useTokenApprove();
 
   const currentEthDaiPrice = ethDaiData?.ethDai ?? 0;
   const currentDaiEthPrice = ethDaiData?.daiEth ?? 0;
 
-  const currentPrice = selected === TRADE_OPTIONS.DAI_ETH ? currentDaiEthPrice : currentEthDaiPrice;
+  const currentPrice =
+    selected === TRADE_OPTIONS.DAI_ETH
+      ? currentDaiEthPrice
+      : currentEthDaiPrice;
   const parsedCurrentPrice =
     currentPrice < 0.001
       ? parseFloat(currentPrice, 8)
       : parseNumberWithComma(Number(parseFloat(currentPrice, 4)));
 
-  const currentPriceUnit = selected === TRADE_OPTIONS.DAI_ETH ? 'DAI/ETH' : 'ETH/DAI';
-  const fromUnit = selected === TRADE_OPTIONS.DAI_ETH ? 'DAI' : 'ETH';
-  const toUnit = selected === TRADE_OPTIONS.DAI_ETH ? 'ETH' : 'DAI';
+  const currentPriceUnit =
+    selected === TRADE_OPTIONS.DAI_ETH ? "DAI/ETH" : "ETH/DAI";
+  const fromUnit = selected === TRADE_OPTIONS.DAI_ETH ? "DAI" : "ETH";
+  const toUnit = selected === TRADE_OPTIONS.DAI_ETH ? "ETH" : "DAI";
 
   const handleApprove = async () => {
     if (isApproveLoading) return;
@@ -91,19 +106,18 @@ const TradePage = () => {
       return;
     }
 
-    const salt = Array.from({ length: 30 }, () => Math.floor(Math.random() * 10)).reduce(
-      (acc, curr) => acc + curr.toString(),
-      ''
-    );
+    const salt = Array.from({ length: 30 }, () =>
+      Math.floor(Math.random() * 10)
+    ).reduce((acc, curr) => acc + curr.toString(), "");
 
     const calldata = await orderCalldata(
       salt,
       Math.floor(Number(amount)).toString(),
-      selected === TRADE_OPTIONS.ETH_DAI ? '1' : '0',
+      selected === TRADE_OPTIONS.ETH_DAI ? "1" : "0",
       price.toString()
     );
     if (!calldata) {
-      return 'Invalid inputs to generate witness.';
+      return "Invalid inputs to generate witness.";
     }
 
     setProofA(calldata.a);
@@ -118,10 +132,10 @@ const TradePage = () => {
     try {
       const result = await orderAsync?.();
       if (result) {
-        alert('Successfully order verified');
+        alert("Successfully order verified");
       }
     } catch (error) {
-      alert('order verifying failed');
+      alert("order verifying failed");
     }
   };
 
@@ -140,13 +154,13 @@ const TradePage = () => {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           amount: parseEther(amount.toString()).toString() as any,
           decimalPoints: 18,
-          tokenTicker: selected.split('_')[0] as string,
+          tokenTicker: selected.split("_")[0] as string,
         },
         to: {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           amount: parseEther(calculatedAmount.toString()).toString() as any,
           decimalPoints: 18,
-          tokenTicker: selected.split('_')[1] as string,
+          tokenTicker: selected.split("_")[1] as string,
         },
         status: ORDER_STATUS.ORDERED,
       });
@@ -162,16 +176,16 @@ const TradePage = () => {
     const amountNum = Number(amount || 0);
     const priceNum = Number(amount || 0);
     if (!amountNum || !priceNum) {
-      setCalculatedAmount('');
+      setCalculatedAmount("");
       return;
     }
     setCalculatedAmount(Number(parseFloat(amountNum * Number(price), 8)));
   }, [amount, price]);
 
   useEffect(() => {
-    setAmount('');
-    setPrice('');
-    setCalculatedAmount('');
+    setAmount("");
+    setPrice("");
+    setCalculatedAmount("");
   }, [selected]);
 
   return (
@@ -190,7 +204,7 @@ const TradePage = () => {
                   DAI
                 </ToggleText>
               ),
-              handler: id => select(id as TRADE_OPTIONS),
+              handler: (id) => select(id as TRADE_OPTIONS),
             }}
             right={{
               id: TRADE_OPTIONS.DAI_ETH,
@@ -201,7 +215,7 @@ const TradePage = () => {
                   ETH
                 </ToggleText>
               ),
-              handler: id => select(id as TRADE_OPTIONS),
+              handler: (id) => select(id as TRADE_OPTIONS),
             }}
           />
           <TradeInputWrapper>
@@ -210,25 +224,38 @@ const TradePage = () => {
               label="Amount"
               unit={fromUnit}
               value={amount}
-              handleChange={value => setAmount(value.floatValue ?? '')}
+              handleChange={(value) => setAmount(value.floatValue ?? "")}
             />
             <TextField
               label="Price"
               unit={currentPriceUnit}
               value={price}
-              handleChange={value => setPrice(value.floatValue ?? '')}
+              handleChange={(value) => setPrice(value.floatValue ?? "")}
             />
-            <TextField label="Amount" unit={toUnit} value={calculatedAmount} readOnly />
+            <TextField
+              label="Amount"
+              unit={toUnit}
+              value={calculatedAmount}
+              readOnly
+            />
           </TradeInputWrapper>
         </TradeWrapper>
         {isConnected ? (
           !allowance ? (
             <ButtonLarge text="Approve" onClick={handleApprove} />
           ) : (
-            <ButtonLarge text="Trade" isLoading={isTradeLoading} onClick={callTradeData} />
+            <ButtonLarge
+              text="Trade"
+              isLoading={isTradeLoading}
+              onClick={callTradeData}
+            />
           )
         ) : (
-          <ButtonLarge text="Connect Wallet" isLoading={isOpen} onClick={open} />
+          <ButtonLarge
+            text="Connect Wallet"
+            isLoading={isOpen}
+            onClick={open}
+          />
         )}
       </ContentWrapper>
     </Wrapper>

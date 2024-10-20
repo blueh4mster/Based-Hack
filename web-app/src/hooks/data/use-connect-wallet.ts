@@ -1,8 +1,8 @@
-import { useAccount, useConnect, useDisconnect } from 'wagmi';
-import { InjectedConnector } from 'wagmi/connectors/injected';
+import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { InjectedConnector } from "wagmi/connectors/injected";
 
-import { chains } from './../../configs/setup-wallet';
-import { DEFAULT_CHAIN_ID } from './../../constants/constants';
+import { chains } from "./../../config/wallet";
+import { DEFAULT_CHAIN_ID } from "./../../constants/constants";
 
 export const useConnectWallet = (chainId: number = DEFAULT_CHAIN_ID) => {
   const { address, isConnected } = useAccount();

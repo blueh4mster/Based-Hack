@@ -2,7 +2,7 @@ import { useWeb3Modal } from "@web3modal/react";
 import { useNavigate } from "react-router-dom";
 import tw from "twin.macro";
 
-import logo from "../../assets/images/logo.png";
+// import logo from "../../assets/images/logo.png";
 import { useConnectWallet } from "../../hooks/data/use-connect-wallet";
 
 import { ButtonMedium } from "../buttons";
@@ -59,9 +59,9 @@ const Wrapper = tw.div`
   flex items-center justify-between
 `;
 
-const LogoWrapper = tw.img`
-  flex-center object-cover h-28
-`;
+// const LogoWrapper = tw.img`
+//   flex-center object-cover h-28
+// `;
 
 const ContentWrapper = tw.div`
   flex items-center gap-40
