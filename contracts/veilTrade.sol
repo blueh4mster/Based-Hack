@@ -45,10 +45,14 @@ contract veilTrade {
     uint[] public zArr;
     uint[] public nArr;
     uint[] public oArr;
-    uint[] public mArr; 
-    uint[] public cArr; 
+    uint[] public mArr; // matched
+    uint[] public cArr; // canceled
     uint[] public onArr;
     uint public settlementPrice;
+    // root is calculated by xor of all Zs.
+    // Used for existence of Z
+    // But skip it in this hackathon :P
+    // uint root;
 
     constructor(address _WETHAddr, address _DAIAddr, address _matcherAddr, address _depositVerifierAddr, address _withdrawVerifierAddr, address _orderVerifierAddr, address _settleVerifierAddr, address _cancelVerifierAddr) {
         WETHAddr = _WETHAddr;
@@ -220,4 +224,8 @@ contract veilTrade {
       onArr.push(input[1]);
       zArr.push(input[2]);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f40574d (edited feed data)
