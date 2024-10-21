@@ -16,7 +16,7 @@ export const CONTRACT_ADDRESS: Record<string, `0x${string}`> = {
 export const API_URL = "http://localhost:8080";
 // contract address for `veilTrade.sol`
 export const VEILTRADE_CONTRACT_ADDRESS =
-  "0xCA8FC92970a4361d9219Cf5535F3cDFFB1C4f1B9"; // example addresses , not meant for the final app
+  "0xCFF2D66B5a3315993466a46ea8975A0366d14433"; // example addresses , not meant for the final app
 export const DAI = "0x7D90bB8638EED8D8D7624643927FbC9984750360"; // DAI on base sepolia
 export const WETH = "0x999B45BB215209e567FaF486515af43b8353e393"; // WETH on base sepolia
 export const MATCHER = "0xD5D56F27A592F2E9A008647eeAa390cc353dfc36";
