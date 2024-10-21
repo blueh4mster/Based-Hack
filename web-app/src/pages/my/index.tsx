@@ -1,19 +1,22 @@
-import tw from 'twin.macro';
-import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts';
+import tw from "twin.macro";
+import { useLocalStorage, useReadLocalStorage } from "usehooks-ts";
 
-import { Gnb } from '../../components/gnb';
-import { LOCALSTORAGE_KEYS } from '../../constants/constants';
+import { Gnb } from "../../components/gnb";
+import { LOCALSTORAGE_KEYS } from "../../constants/constants";
 
-import { BalanceHeader } from './components/balance-header';
-import { BalanceRow } from './components/balance-row';
-import { OrderHeader } from './components/order-header';
-import { OrderRow } from './components/order-row';
-import { Balance, Order, ORDER_STATUS } from './types';
+import { BalanceHeader } from "./components/balance-header";
+import { BalanceRow } from "./components/balance-row";
+import { OrderHeader } from "./components/order-header";
+import { OrderRow } from "./components/order-row";
+import { Balance, Order, ORDER_STATUS } from "./types";
 
 const MyPage = () => {
-  const currentBalances = useReadLocalStorage<Balance[]>(LOCALSTORAGE_KEYS.BALANCES) ?? [];
-  const currentOrders = useReadLocalStorage<Order[]>(LOCALSTORAGE_KEYS.ORDERS) ?? [];
+  const currentBalances =
+    useReadLocalStorage<Balance[]>(LOCALSTORAGE_KEYS.BALANCES) ?? [];
+  const currentOrders =
+    useReadLocalStorage<Order[]>(LOCALSTORAGE_KEYS.ORDERS) ?? [];
   const [orders, setOrders] = useLocalStorage<Order[]>(LOCALSTORAGE_KEYS.ORDERS, currentOrders);
+  // const [orders, setOrders] :Order[]=[];
 
   const handleReveal = () => {
     const length = orders.length;
@@ -29,7 +32,6 @@ const MyPage = () => {
       return;
     }
 
-    // 2개 이상일때 하나만 canceled
     const randomIdx = Math.floor(Math.random() * orders.length);
     const newOrders = orders.map((order, idx) => {
       if (idx === randomIdx) {
@@ -67,7 +69,7 @@ const MyPage = () => {
             ))}
           </TableWrapper>
         </PositionWrapper>
-        <Refresh onClick={() => handleReveal()}>{'Get Result'}</Refresh>
+        <Refresh onClick={() => handleReveal()}>{"Get Result"}</Refresh>
       </ContentWrapper>
     </Wrapper>
   );
