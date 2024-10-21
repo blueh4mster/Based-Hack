@@ -17,3 +17,7 @@ All these contracts have been deployed to the Base Sepolia Testnet.
 - orderVerifier : `0xBCE2dd10f23Ac67557E1F2297f79E422211EE077`
 - withdrawVerifier : `0x1457132Ef4b3A540Df50f7F781a3250489868d20`
 - veilTrade : `0xCA8FC92970a4361d9219Cf5535F3cDFFB1C4f1B9`
+
+## User Flow and Architecture
+
+![VeilTrade](images/veilTrade.png)
